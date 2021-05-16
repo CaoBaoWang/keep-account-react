@@ -5,16 +5,13 @@ import Money from "./views/Money";
 import Statistics from "./views/Statistics";
 import NoMatch from "./views/NoMatch";
 import Nav from './components/Nav.tsx'
-
 import {
     HashRouter as Router,
     Switch,
     Route,
     Redirect,
-    Link
 } from "react-router-dom";
 import styled from "styled-components";
-import {isPrimitive} from "util";
 
 
 const Wrapper = styled.div`
