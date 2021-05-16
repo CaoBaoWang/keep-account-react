@@ -4,7 +4,6 @@ import Nav from "./Nav";
 
 
 const Wrapper = styled.div`
-  border: 1px solid red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
