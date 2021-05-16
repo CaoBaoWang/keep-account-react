@@ -30,8 +30,6 @@ const Main = styled.div`
 function App() {
     return (
         <Router>
-            <Wrapper>
-                <Main>
                 <Switch>
                     <Redirect exact from="/" to="/money"/>
                     <Route path="/tags">
@@ -47,9 +45,6 @@ function App() {
                         <NoMatch/>
                     </Route>
                 </Switch>
-                </Main>
-                <Nav />
-            </Wrapper>
         </Router>
     );
 }

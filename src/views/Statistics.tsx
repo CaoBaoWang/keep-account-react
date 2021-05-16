@@ -1,7 +1,13 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 function Statistics() {
-    return <h2>statistics</h2>;
+    return (
+        <Layout>
+            <h2>statistics</h2>
+        </Layout>
+
+    );
 }
 
 

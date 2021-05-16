@@ -1,7 +1,12 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 function Money() {
-    return <h2>money</h2>;
+    return (
+        <Layout>
+            <h2>money</h2>
+        </Layout>
+    );
 }
 
 export default Money
