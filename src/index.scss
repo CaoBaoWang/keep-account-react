@@ -1,6 +1,6 @@
 @import-normalize;
 
-
+@import "helper.scss";
 
 body{
   margin: 0;
@@ -15,7 +15,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
-$theme: #ff0;
 
 body {
   color :$theme
@@ -24,3 +23,4 @@ body {
 * {
   color: red;
 }
+
