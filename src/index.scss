@@ -39,3 +39,16 @@ body {
   line-height: 1.2;
 }
 
+button {
+  font-family: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}

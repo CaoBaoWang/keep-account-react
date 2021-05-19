@@ -10,16 +10,19 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-    flex-grow: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 `
 
-const Layout = (props:any)=>{
+const Layout = (props: any) => {
     return (
         <Wrapper>
             <Main>
                 {props.children}
             </Main>
-            <Nav />
+            <Nav/>
         </Wrapper>
     )
 }
