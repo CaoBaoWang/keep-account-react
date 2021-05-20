@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/Layout";
-import styled from "styled-components";
 import {TagSection} from "./money/TagSection";
 import {NoteSection} from './money/NoteSction'
 import {CategorySection} from './money/CategorySection'
@@ -9,21 +8,10 @@ import {KeyboardSection} from "./money/KeyboardSection";
 function Money() {
     return (
         <Layout>
-            <TagSection>
-                <ul>
-                    <li>衣</li>
-                    <li>食</li>
-                    <li>住</li>
-                    <li>行</li>
-                </ul>
-                <button>新增标签</button>
-            </TagSection>
-            <NoteSection>
-                <label>
-                    备注
-                    <input type="text" placeholder='输入备注'/>
-                </label>
-            </NoteSection>
+            <TagSection/>
+
+            <NoteSection/>
+
             <CategorySection>
                 <ul>
                     <li className="selected">收入</li>
