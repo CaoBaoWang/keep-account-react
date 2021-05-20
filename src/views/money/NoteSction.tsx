@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 
 const Wrapper = styled.section`
   background: #f5f5f5;
@@ -22,17 +22,24 @@ const Wrapper = styled.section`
 `
 
 const NoteSection: React.FC = () => {
-    const [note,setNote] = useState('')
+    const [note, setNote] = useState('')
 
+    const refInput = useRef<HTMLInputElement>(null)
+    const x = () => {
+        if (refInput.current !== null) {
+            setNote(refInput.current.value);
+            // v-model.lazy="value"
+        }
+    }
     return (
         <Wrapper>
-            {note}
             <label>
                 备注
-                <input type="text"
-                       value={note}
-                       onChange={e=> setNote(e.target.value)}
-                       placeholder='输入备注'/>
+                <input type="text" placeholder='输入备注'
+                       ref={refInput}
+                       defaultValue={note}
+                       onBlur={x}
+                />
             </label>
         </Wrapper>
     )

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useRef, useState} from "react";
+import React, { useState} from "react";
 
 const Wrapper = styled.section`
   background: #FFFFFF;
