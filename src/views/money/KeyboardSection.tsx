@@ -1,19 +1,26 @@
-import styled from "styled-components";
 import React, {useState} from "react";
 import {Wrapper} from './keyboardSection/Wrapper'
 import {getOutput} from "./keyboardSection/getOutput";
 
 
-const KeyboardSection: React.FC = () => {
-    const [output, _setOutput] = useState<string>('0')
+type Props = {
+    value : number,
+    onChange :(amount:number)=> void
+}
+
+const KeyboardSection: React.FC<Props> = (props) => {
+    // const [output, _setOutput] = useState<string>('0')
+    const [output,_setOutput] = useState(props.value.toString())
 
     const setOutput = (newOutput:string)=>{
+        console.log(`newOutput=${newOutput}`);
         if(newOutput.length > 16) {
             newOutput = newOutput.slice(0,16)
         }else if (newOutput.length === 0) {
             newOutput = '0'
         }
         _setOutput(newOutput)
+        props.onChange(parseFloat(newOutput))
     }
 
     const onBtnWrapperClick = (e: React.MouseEvent) => {

@@ -22,7 +22,7 @@ const getOutput = (text: string, output: string) => {
                 return ''
             }
         case '.':
-            if (output.indexOf('.') > 0) {
+            if (output.indexOf('.') >=0) {
                 return output
             } else if (output === '0') {
                 return '0.'

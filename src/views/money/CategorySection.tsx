@@ -28,17 +28,29 @@ const Wrapper = styled.section`
   }
 
 `
+
+// type X = typeof categoryMap  //X = {"+": string, "-": string}
+
+
 // type Category = '+' | '-'
 
-const CategorySection: React.FC = () => {
-    const categoryMap = {'-': '支出', '+': '收入'}
-    // type X = typeof categoryMap  //X = {"+": string, "-": string}
-    type Category = keyof typeof categoryMap //Category = '-'|'+'
+const categoryMap = {'-': '支出', '+': '收入'}
+
+//Category = '-'|'+'
+type Category = keyof typeof categoryMap
+
+type Props = {
+    value: string,
+    onChange: (category: Category) => void
+}
+
+const CategorySection: React.FC<Props> = (props) => {
+
 
     const [categoryList] = useState<Category[]>(['-', '+'])
 
-    const [category, setCategory] = useState('-')
-
+    // const [category, setCategory] = useState('-')
+    const category = props.value
 
     return (
         <Wrapper>
@@ -46,14 +58,16 @@ const CategorySection: React.FC = () => {
                 {
                     categoryList.map(c =>
                         <li
-                            onClick={() => setCategory(c)}
+                            key={c}
+                            onClick={() => props.onChange(c)}
                             className={c === category ? 'selected' : ''}>{categoryMap[c]}</li>
                     )
                 }
-                {/*<li className="selected"> 支出</li>*/}
-                {/*<li>收入</li>*/}
+
             </ul>
         </Wrapper>
     )
 }
 export {CategorySection}
+export type {Category}
+
