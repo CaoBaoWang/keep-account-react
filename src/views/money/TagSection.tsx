@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState} from "react";
+import React, { } from "react";
 import {useTags} from "../../useTags";
 
 const Wrapper = styled.section`
@@ -26,6 +26,7 @@ const Wrapper = styled.section`
       
       &.selected {
         background: red;
+        color: white;
       }
     }
   }
@@ -45,33 +46,33 @@ const Wrapper = styled.section`
   }
 `
 type Props = {
-    value:string[],
-    onChange : (selectedTags:string[])=> void
+    value:number[],
+    onChange : (selectedTags:number[])=> void
 }
 
 const TagSection: React.FC<Props> = (props) => {
     const {tags,setTags} = useTags()
-    // const [selectedTags, setSelectedTags] = useState<string[]>([])
-    const selectedTags = props.value
+
+    const selectedTagIds = props.value
     const addTag = () => {
-        const newTag = window.prompt('请输入新标签名称')
-        console.log(newTag)
-        if (newTag !== null) {
-            setTags([...tags, newTag])
+        const tagName = window.prompt('请输入新标签名称')
+        console.log(tagName)
+        if (tagName !== null) {
+            setTags([...tags, {id:Math.random(),name:tagName}])
         }
     }
-    const onToggleTag = (tag: string) => {
-        if (selectedTags.indexOf(tag) >= 0) {
-            props.onChange(selectedTags.filter(s => s !== tag))
+    const onToggleTag = (tagId: number) => {
+        const isSelected = selectedTagIds.indexOf(tagId) >= 0
+        if (isSelected) {
+            props.onChange(selectedTagIds.filter(s => s !== tagId))
         } else {
-            props.onChange([...selectedTags,tag])
+            props.onChange([...selectedTagIds,tagId])
         }
 
     }
-    const getClass = (tag: string) => {
-        const index  = selectedTags.indexOf(tag)
-
-        return index >=0? 'selected':''
+    const getClass = (tagId: number) => {
+        const isSelected  = selectedTagIds.indexOf(tagId) >=0
+        return isSelected ? 'selected':''
     }
 
     return (
@@ -81,7 +82,7 @@ const TagSection: React.FC<Props> = (props) => {
                 {
                     tags.map((tag) => {
                             return (
-                                <li className={getClass(tag)} onClick={() => onToggleTag(tag)} key={tag}>{tag}</li>
+                                <li className={getClass(tag.id)} onClick={() => onToggleTag(tag.id)} key={tag.name}>{tag.name}</li>
                             )
                         }
                     )

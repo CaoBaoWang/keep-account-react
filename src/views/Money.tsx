@@ -7,7 +7,7 @@ import {KeyboardSection} from "./money/KeyboardSection";
 
 function Money() {
     const [selected,setSelected] = useState({
-        tags:[] as string[],
+        tagIds:[] as number[],
         note:'',
         category:'-' as Category ,
         amount: 0
@@ -24,7 +24,7 @@ function Money() {
 
     return (
         <Layout>
-            <TagSection value={selected.tags} onChange={tags=> onChange({tags})}  />
+            <TagSection value={selected.tagIds} onChange={tagIds=> onChange({tagIds})}  />
 
             <NoteSection value={selected.note} onChange={note=> onChange({note})}/>
 
