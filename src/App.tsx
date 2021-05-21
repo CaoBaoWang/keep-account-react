@@ -22,7 +22,7 @@ function App() {
                         <Tags/>
                     </Route>
                     {/*exact 精确匹配*/}
-                    <Route exact path="/tags:tag">
+                    <Route exact path="/tags/:tagId">
                         <Tag/>
                     </Route>
                     <Route exact path="/money">

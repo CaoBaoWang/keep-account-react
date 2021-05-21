@@ -11,10 +11,13 @@ let defaultTags = [
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>(defaultTags)
 
+    const findTag = (tagId:number) => tags.filter(tag  => tag.id === tagId)[0]
+
     return {
         tags,
-        setTags
+        setTags,
+        findTag,
     }
 }
 
-export {useTags}
+export {useTags , }
