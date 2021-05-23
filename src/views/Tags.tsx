@@ -4,7 +4,9 @@ import {useTags} from "../useTags";
 import styled from "styled-components";
 import Icon from "../components/Icon";
 import {Link} from 'react-router-dom';
-
+import {Button} from "../components/Button";
+import {Center} from "../components/Center";
+import {Space} from "../components/Space";
 
 const TagsList = styled.ul`
   font-size: 16px;
@@ -33,31 +35,14 @@ const TagsList = styled.ul`
 `
 
 
-const Button = styled.button`
-  font-size: 18px;
-  border: none;
-  padding: 8px 12px;
-  background: red;
-  color: white;
-  border-radius: 4px;
-  width: 100px;
-  height: 40px;
-`
 
-const Center = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`
 
-const Space = styled.div`
-  height: 16px;
-`
+
+
 
 
 function Tags() {
-    const {tags, setTags} = useTags()
+    const {tags} = useTags()
     return (
         <Layout>
             <TagsList>
