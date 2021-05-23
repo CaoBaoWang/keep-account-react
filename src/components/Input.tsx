@@ -8,11 +8,11 @@ const Label = styled.label`
   align-items: center;
 
   > input {
-    background: #f5f5f5;
     border: none;
     margin-left: 16px;
     flex-grow: 1;
     height: 44px;
+    background: none;
 
   }
 
@@ -27,9 +27,8 @@ const Input: React.FC<Props> = (props) => {
 
     return (
         <Label>
-            <span>备注</span>
+            <span>{label}</span>
             <input
-                value={label}
                 {...reset}
             />
         </Label>
