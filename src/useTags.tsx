@@ -16,27 +16,13 @@ const useTags = () => {
     const [tags, setTags] = useState<Tag[]>(defaultTags)
 
     const findTag = (tagId: number) => tags.filter(tag => tag.id === tagId)[0]
-    const findIndex = (tagId: number) => {
-        let result = -1
-        for (let i = 0; i < tags.length; i++) {
-            if (tagId === tags[i].id) {
-                result = i
-            }
-        }
-        return result
-    }
+    const findIndex = (tagId: number) => tags.findIndex(tag => tag.id=== tagId)
 
-    const deleteTag = (tagId: number) => {
-        const index = findIndex(tagId)
-        let tagsClone = JSON.parse(JSON.stringify(tags))
-        tagsClone.splice(index, 1)
-        setTags(tagsClone)
-    }
+    const deleteTag = (tagId: number) => setTags(tags.filter(tag=> tag.id!==tagId))
+
     const editTag = (tagId: number, tagName: string) => {
-        const index = findIndex(tagId)
-        let tagsClone = JSON.parse(JSON.stringify(tags));
-        tagsClone.splice(index, 1, {id: tagId, name: tagName})
-        setTags(tagsClone)
+        const newTags = tags.map(tag=> tag.id === tagId ? {id:tagId,name:tagName} : tag)
+        setTags(newTags)
     }
 
     return {

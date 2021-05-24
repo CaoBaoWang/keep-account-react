@@ -2,7 +2,7 @@ import React
     , {ChangeEvent} from "react";
 import {Tag as TagType, useTags} from "useTags";
 
-import {useParams} from 'react-router-dom'
+import {useParams,useHistory} from 'react-router-dom'
 import Layout from "components/Layout";
 import Icon from "components/Icon";
 import {Button} from "../components/Button";
@@ -69,6 +69,10 @@ const Tag: React.FC = (props) => {
             </Center>
         </div>
     )
+    const history = useHistory()
+    const onClickBack = ()=>{
+        history.goBack()
+    }
 
 
     return (
@@ -76,7 +80,7 @@ const Tag: React.FC = (props) => {
 
             <Layout>
                 <TopBar>
-                    <label>
+                    <label onClick={onClickBack}>
                         <Icon name="left"/>
                     </label>
                     <span>编辑标签</span>
