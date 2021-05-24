@@ -1,6 +1,6 @@
 import React
-    from "react";
-import {useTags} from "useTags";
+    , {ChangeEvent} from "react";
+import {Tag as TagType, useTags} from "useTags";
 
 import {useParams} from 'react-router-dom'
 import Layout from "components/Layout";
@@ -10,10 +10,6 @@ import styled from "styled-components";
 import {Center} from "../components/Center";
 import {Space} from "../components/Space";
 import {Input} from "../components/Input";
-
-type Params = {
-    tagId: string
-}
 
 
 const TopBar = styled.header`
@@ -45,10 +41,35 @@ const Wrapper = styled.div`
   background: #F5F5F5;
 
 `
+
+
+type Params = {
+    tagId: string
+}
 const Tag: React.FC = (props) => {
-    const {findTag} = useTags()
-    const {tagId} = useParams<Params>()
-    const tag = findTag(parseInt(tagId))
+    const {findTag, deleteTag, editTag} = useTags()
+    const {tagId: tagIdString} = useParams<Params>()
+    const tag = findTag(parseInt(tagIdString))
+    const tagChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.value
+        editTag(tag.id, name)
+    }
+
+    const tagContent = (tag: TagType) => (
+        <div>
+            <InputWrapper>
+                <Input label='标签名' onChange={tagChange} value={tag.name} placeholder='请输入标签名'/>
+
+            </InputWrapper>
+            <Center>
+                <Space/>
+                <Space/>
+                <Space/>
+                <Button onClick={() => deleteTag(tag.id)}>删除标签</Button>
+            </Center>
+        </div>
+    )
+
 
     return (
         <Wrapper>
@@ -60,17 +81,16 @@ const Tag: React.FC = (props) => {
                     </label>
                     <span>编辑标签</span>
                 </TopBar>
+                {
+                    tag ? tagContent(tag) :
+                        <Center>
+                            <Space/>
+                            <Space/>
+                            <Space/>
+                            tag 不存在
+                        </Center>
+                }
 
-                <InputWrapper>
-                    <Input label='标签名' value={tag.name} placeholder='请输入标签名'/>
-
-                </InputWrapper>
-                <Center>
-                    <Space/>
-                    <Space/>
-                    <Space/>
-                    <Button>删除标签</Button>
-                </Center>
             </Layout>
         </Wrapper>
 
