@@ -1,4 +1,4 @@
-import React from "react";
+import React, {} from "react";
 import Layout from "../components/Layout";
 import {useTags} from "../useTags";
 import styled from "styled-components";
@@ -42,7 +42,9 @@ const TagsList = styled.ul`
 
 
 function Tags() {
-    const {tags} = useTags()
+    const {tags,addTag} = useTags()
+
+
     return (
         <Layout>
             <TagsList>
@@ -63,7 +65,7 @@ function Tags() {
                 <Space/>
                 <Space/>
                 <Space/>
-                <Button>新增标签</Button>
+                <Button onClick={addTag}>新增标签</Button>
             </Center>
         </Layout>
     );

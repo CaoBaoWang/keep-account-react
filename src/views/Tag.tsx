@@ -1,5 +1,5 @@
 import React
-    , {ChangeEvent} from "react";
+    , {ChangeEvent,} from "react";
 import {Tag as TagType, useTags} from "useTags";
 
 import {useParams,useHistory} from 'react-router-dom'
@@ -54,7 +54,6 @@ const Tag: React.FC = (props) => {
         const name = e.target.value
         editTag(tag.id, name)
     }
-
     const tagContent = (tag: TagType) => (
         <div>
             <InputWrapper>
