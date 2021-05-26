@@ -5,6 +5,14 @@ import {NoteSection} from './money/NoteSction'
 import {Category, CategorySection} from './money/CategorySection'
 import {KeyboardSection} from "./money/KeyboardSection";
 import {Record, useRecords} from "../hooks/useRecords";
+import styled from "styled-components";
+
+
+
+
+const CategoryWrapper = styled.div `
+    background: #c4c4c4;
+`
 
 const initialRecord = {
     tagIds: [] as number[],
@@ -41,7 +49,9 @@ function Money() {
 
             <NoteSection value={selected.note} onChange={note => onChange({note})}/>
 
-            <CategorySection value={selected.category} onChange={(category => onChange({category}))}/>
+            <CategoryWrapper>
+                <CategorySection value={selected.category} onChange={(category => onChange({category}))}/>
+            </CategoryWrapper>
 
             <KeyboardSection value={selected.amount}
                              submit={submit}

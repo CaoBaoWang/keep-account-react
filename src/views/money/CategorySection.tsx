@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, {useState} from "react";
 
 const Wrapper = styled.section`
-  background-color: #c4c4c4;
+  //background-color: #c4c4c4;
 
   > ul {
     display: flex;
@@ -49,7 +49,6 @@ const CategorySection: React.FC<Props> = (props) => {
 
     const [categoryList] = useState<Category[]>(['-', '+'])
 
-    // const [category, setCategory] = useState('-')
     const category = props.value
 
     return (
