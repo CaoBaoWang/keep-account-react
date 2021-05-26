@@ -33,6 +33,10 @@ const useTags = () => {
 
 
     const findTag = (tagId: number) => tags.filter(tag => tag.id === tagId)[0]
+    const getTagName = (tagId:number) => {
+        const tag = findTag(tagId);
+        return tag?.name || ''
+    }
     const findIndex = (tagId: number) => tags.findIndex(tag => tag.id === tagId)
     const deleteTag = (tagId: number) => setTags(tags.filter(tag => tag.id !== tagId))
     const editTag = (tagId: number, tagName: string) => {
@@ -55,7 +59,8 @@ const useTags = () => {
         findIndex,
         deleteTag,
         editTag,
-        addTag
+        addTag,
+        getTagName
 
     }
 }

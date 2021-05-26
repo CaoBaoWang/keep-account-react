@@ -1,6 +1,5 @@
 import {Category} from "../views/money/CategorySection";
 import {useEffect, useState} from "react";
-import webpack from "webpack";
 import {useUpdate} from "./useUpdate";
 
 
@@ -20,7 +19,6 @@ type Record =  Omit<RecordItem, 'createAt'>
 
 const useRecords = ()=>{
     const [records,setRecords]  = useState<RecordItem[]>([])
-
 
     useEffect(()=>{
         setRecords(JSON.parse(window.localStorage.getItem('records')|| '[]'))
@@ -47,6 +45,7 @@ const useRecords = ()=>{
 
 
     return {
+        records,
         addRecord
     }
 }

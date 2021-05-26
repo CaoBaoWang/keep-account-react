@@ -29,7 +29,6 @@ function Money() {
     const {addRecord} = useRecords()
 
     const submit = () => {
-        console.log('submit')
         const success = addRecord(selected)
         if(success) {
             setSelected(initialRecord)
