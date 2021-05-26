@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Wrapper} from './keyboardSection/Wrapper'
 import {getOutput} from "./keyboardSection/getOutput";
 
 
 type Props = {
     value : number,
-    onChange :(amount:number)=> void
+    onChange :(amount:number)=> void,
+    submit:()=>void
 }
 
 const KeyboardSection: React.FC<Props> = (props) => {
     // const [output, _setOutput] = useState<string>('0')
     const [output,_setOutput] = useState(props.value.toString())
-
+    useEffect(()=>{
+        _setOutput(props.value.toString())
+    },[props.value])
     const setOutput = (newOutput:string)=>{
-        console.log(`newOutput=${newOutput}`);
         if(newOutput.length > 16) {
             newOutput = newOutput.slice(0,16)
         }else if (newOutput.length === 0) {
@@ -27,7 +29,8 @@ const KeyboardSection: React.FC<Props> = (props) => {
         const text = (e.target as HTMLButtonElement).textContent
         if (text === null) return
         if(text ==='OK'){
-            console.log("TODO ok")
+            props.submit()
+
         }
         const validInput = ('0123456789.'.split('').concat(['删除','清空']).indexOf(text)>=0)
         if(validInput) {

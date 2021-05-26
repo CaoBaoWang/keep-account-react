@@ -1,6 +1,6 @@
 import React
     , {ChangeEvent,} from "react";
-import {Tag as TagType, useTags} from "useTags";
+import {Tag as TagType, useTags} from "hooks/useTags";
 
 import {useParams,useHistory} from 'react-router-dom'
 import Layout from "components/Layout";
