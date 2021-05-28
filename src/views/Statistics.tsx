@@ -44,7 +44,7 @@ function Statistics() {
     const selectedRecords = records.filter(record => record.category === category)
     // group  ['2021年05月27日':[record1,record2]]
     const group: { [K: string]: RecordItem[] } = {}
-    selectedRecords.map(record => {
+    selectedRecords.forEach(record => {
         const groupName = day(record.createAt).format('YYYY年MM月DD日')
         if (group[groupName] === undefined) {
             group[groupName] = []
@@ -65,7 +65,7 @@ function Statistics() {
         setCategory(c)
     }
     return (
-        <Layout>
+        <Layout >
             <CategoryWrapper>
                 <CategorySection value={category} onChange={onChange}/>
             </CategoryWrapper>
@@ -92,10 +92,11 @@ function Statistics() {
                                         {/*{record.tagIds.map(tagId => <span>{getTagName(tagId)}</span>)}*/}
                                         <span className="note">{record.note}</span>
                                         <span className="amount">{'￥' + record.amount}</span>
+
                                     </div>
+
                                 )
                             })}
-
                         </div>
                     )
                 })}

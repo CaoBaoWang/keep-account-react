@@ -28,7 +28,7 @@ const useTags = () => {
 
     useUpdate(()=>{
         window.localStorage.setItem('tags', JSON.stringify(tags))
-    },[tags])
+    },tags)
 
 
 

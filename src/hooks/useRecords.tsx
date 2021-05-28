@@ -26,7 +26,7 @@ const useRecords = ()=>{
 
     useUpdate(()=>{
         window.localStorage.setItem('records' ,JSON.stringify(records))
-    },[records])
+    },records)
 
     const addRecord = (record:Record)=>{
         if(record.tagIds.length === 0) {

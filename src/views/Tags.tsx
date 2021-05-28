@@ -55,8 +55,8 @@ function Tags() {
                                 <span className="oneLine">{tag.name}</span>
                                 <Icon name="right"/>
                             </Link>
-
                         </li>
+
                     )
                 }
 
@@ -66,6 +66,7 @@ function Tags() {
                 <Space/>
                 <Space/>
                 <Button onClick={addTag}>新增标签</Button>
+                <Space/>
             </Center>
         </Layout>
     );
