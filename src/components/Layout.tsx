@@ -13,7 +13,7 @@ const Main = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
 `
 
 
@@ -28,12 +28,7 @@ const Layout: React.FC<Props> = (props) => {
     useEffect(() => {
         setTimeout(() => {
             if (!mainRef.current) return
-            // console.log(props.scrollTop);
-            console.log(mainRef.current)
             mainRef.current.scrollTop = props.scrollTop!
-
-            console.log(mainRef.current.scrollTop);
-
 
         }, 0)
     }, [props.scrollTop])
