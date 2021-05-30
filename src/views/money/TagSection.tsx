@@ -23,11 +23,11 @@ const Wrapper = styled.section`
       font-size: 14px;
       margin: 8px 12px;
       border-radius: 18px;
-      background: #D9D9D9;
+      background: #EBEBEB;
+      color: #3E4459;
       
       &.selected {
-        background: red;
-        color: white;
+        background: #C5D2FF;
       }
     }
   }

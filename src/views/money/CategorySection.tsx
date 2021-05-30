@@ -19,6 +19,7 @@ const Wrapper = styled.section`
         content: '';
         display: block;
         background: #333;
+        //background: white;
         height: 3px;
         position: absolute;
         width: 100%;

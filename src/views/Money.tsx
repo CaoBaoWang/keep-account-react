@@ -11,7 +11,7 @@ import styled from "styled-components";
 
 
 const CategoryWrapper = styled.div `
-    background: #c4c4c4;
+  background: #c4c4c4;
 `
 
 const initialRecord = {

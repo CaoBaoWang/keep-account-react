@@ -20,15 +20,18 @@ const NavWrapper = styled.nav`
         align-items: center;
         text-align: center;
         padding: 8px;
+        color: #929292;
+        
         .icon {
           width: 24px;
           height: 24px;
+          fill: #929292;
         }
 
         &.selected {
-          color: red;
+          color: #476FF6;
           .icon {
-            fill:red;
+            fill:#476FF6;
           }
         }
       }
