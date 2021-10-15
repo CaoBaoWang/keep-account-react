@@ -370,7 +370,9 @@ module.exports = function (webpackEnv) {
             {
               test: /\.svg$/,
               use: [
+                //   svg-symbol。让我们可以直接使用 svg-use。
                 { loader: 'svg-sprite-loader', options: {} },
+                //  remove svg 填充的颜色
                 {loader: 'svgo-loader', options: {
                   plugins:[
                     {removeAttrs:{attrs: 'fill'}}
