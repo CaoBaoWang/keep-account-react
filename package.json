@@ -2,7 +2,7 @@
   "name": "keep-account-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://caobaowang.github.io/keep-account-website/",
+  "homepage": "https://sealeywang.github.io/keep-account-website/",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
